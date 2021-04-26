@@ -1,2 +1,2 @@
 console.log('hello')
-hi
+console.log('object');

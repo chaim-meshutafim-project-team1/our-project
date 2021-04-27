@@ -5,6 +5,7 @@ import TextInput from '../utils/TextInput'
 import Card from '../utils/Card'
 import DropDown from '../utils/DropDown'
 import axios from 'axios'
+import Search from '../utils/Search'
 
 const Translation = () => {
 
@@ -15,10 +16,8 @@ const Translation = () => {
         setInputValue(e.target.value)
     }
 
-    const sendURL = async () => {
-        // const result = await axios.get('/api/translate', {
-        //     url: { inputValue }
-        // })
+    const sendURL = async (url) => {
+        // const result = await axios.get('/api/translate', {url});
         // console.log(result);
         // const temp = card
         // temp.push(result.data)
@@ -30,11 +29,7 @@ const Translation = () => {
 
     return (
         <div className="translation-page">
-            <div className="search-container">
-                <TextInput type="text" value={inputValue} onChange={(e) => handleChange(e)} placeholder='Insert "Yad2" URL here' />
-                <DropDown/>
-                <Button onClick={sendURL} text="Submit" />
-            </div>
+            <Search inputValue={inputValue} onChange={handleChange} sendURL={sendURL} />
             <div className="cards-container">
                 {card ?
                     <div>

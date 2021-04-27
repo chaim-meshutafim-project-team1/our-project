@@ -11,10 +11,12 @@
   height: 60px;
   width: 100vw;
   padding: 0 20px;
+  margin-bottom: 40px;
 }
 
 .logo {
   height: 55px;
+  margin: 10px;
 }
 
 .navBtn {

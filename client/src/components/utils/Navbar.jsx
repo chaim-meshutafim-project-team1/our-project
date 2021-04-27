@@ -3,7 +3,7 @@ import { Link,useLocation } from 'react-router-dom'
 import './css/navbar.css'
 import Logo from '../../img/yad2Logo.png'
 
-function Navbar(props) {
+function Navbar() {
 
   const [selected,setSelected]=useState("home");
 

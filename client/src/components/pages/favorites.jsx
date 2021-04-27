@@ -8,6 +8,7 @@ const Favorites = () => {
 
     useEffect(() => {
         const favorites = JSON.parse(localStorage.getItem('favorites')) || []
+        // target the item and remove it from favorites array with array.filter or splice
         setFavoritesItems(favorites)
     }, [])
 
@@ -19,12 +20,12 @@ const Favorites = () => {
         <div className="favorites-page">
             <div className="favorites-container">
                 {favoritesItems.length ?
-                    favoritesItems.map((item) => {
-                        return (
-                            <div>
-                                <Card item={item} />
-                                <i onClick={deleteItem} class="far fa-trash-alt fa-2x"></i>
-                            </div>
+                    favoritesItems.map((item)=>{
+                        return(
+                            <>
+                            <Card item={item} />
+                            <i onClick={deleteItem} class="far fa-trash-alt fa-2x"></i>
+                            </>
                         )
                     })
                     :

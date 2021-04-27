@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter, Route,Switch } from 'react-router-dom'
 import Landing from './components/pages/landing'
 import Translation from './components/pages/translation'
 import Favorites from './components/pages/favorites'

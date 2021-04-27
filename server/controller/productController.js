@@ -77,12 +77,12 @@ const GetTranslate = async (req, res) => {
         translated.lastUpdate = AddedProduct.lastUpdate;
         translated.image = AddedProduct.image;
 
-        try{
-            fieldsToTranslate.forEach((translateField) => translated[translateField] = translate('he',req.body.language,AddedProduct[translateField]));
-        }
-        catch(e) {
-            return res.json({error:e.message});
-        }
+//         try{
+//             fieldsToTranslate.forEach((translateField) => translated[translateField] = translate('he',req.body.language,AddedProduct[translateField]));
+//         }
+//         catch(e) {
+//             return res.json({error:e.message});
+//         }
         res.json(translated);
 }
 

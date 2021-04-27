@@ -9,8 +9,6 @@ const Translation = () => {
     const [card, setCard] = useState(null)
 
 
-
-  
     const sendURL = async ({url,language}) => {
         console.log(url,language);
         const result = await axios.get('/api/translate', {url,language});

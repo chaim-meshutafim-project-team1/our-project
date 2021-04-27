@@ -1,0 +1,9 @@
+.landing-page{
+    background: #f0f0f0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.landing-page img{
+    height: 10vh;
+}

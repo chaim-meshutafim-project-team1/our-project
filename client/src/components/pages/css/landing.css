@@ -1,9 +1,37 @@
-.landing-page{
-    background: #f0f0f0;
-    height: 100vh;
+.landing-page {
+    background: #fff;
+    height: calc(100vh - 60px);
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.landing-content-container{
+    display: flex;
+    justify-content: space-around;
+   
 }
 
-.landing-page img{
-    height: 10vh;
+.landing-textbox {
+    height: 45vh;
+    width: 20vw;
+    margin: 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: smaller;
+   
+}
+
+.landing-textbox h1 {
+    margin:0;
+    color:#f37735ea ;
+    font-weight: bolder;
+}
+
+
+.yad2logo img {
+    height: 30vh;
 }

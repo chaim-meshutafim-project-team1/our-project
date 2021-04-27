@@ -2,6 +2,11 @@
   width: 80vw;
   height: 20vh;
   flex-direction: row;
-  height: 10vh;
   padding: 1rem;
 }
+
+.disable{
+  pointer-events: none;
+  background-color: rgb(189, 186, 186);
+}
+

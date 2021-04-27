@@ -6,10 +6,14 @@ function Card({ item }) {
   console.log(item)
   return (
     <div className="card">
-      <img src={image} alt={title} />
-      <div className="title">{title}</div>
-      <div className="price">{price}</div>
-      <div className="description">{description}</div>
+      <div className="cardImg">
+        <img src={image} alt={title} />
+      </div>
+      <div className="card-data">
+        <div className="title">{title}</div>
+        <div className="price">{price}</div>
+        <div className="description">{description}</div>
+      </div>
     </div>
   )
 }

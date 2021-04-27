@@ -58,22 +58,12 @@ const readProduct = async (productID) => {
 
 const GetTranslate = async (req, res) => {
     const { url } = req.body;
-    // const url = "www.google.co.il/132122234";
+    console.log(req.body);
     const id =  url.substring(url.lastIndexOf('modaaNum=') + 9)
     console.log(id)
 
 
     const product = await readProduct(id)
-
-        // const Scrape = {
-        //     productID:id,
-        //     price:200,
-        //     title:'headling',
-        //     description:'hello',
-        //     lastUpdate:new Date(),
-        //     image:'https://images.pexels.com/photos/1590901/pexels-photo-1590901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-        // }
-        
         const scrapedData = await yad2Scraper(url);
         console.log("**",scrapedData);
 

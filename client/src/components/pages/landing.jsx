@@ -8,7 +8,7 @@ import Logo from '../../img/yad2Logo.png'
 const Landing = () => {
 
     const sendURL = async () => {
-        const result = await axios.get('/api/translate', {
+        const result = await axios.get('http://localhost:5000/api/translate', {
             url: "test.com"
         })
         console.log(result);

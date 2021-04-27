@@ -4,7 +4,7 @@ import './css/navbar.css'
 // import Logo from '../../img/yad2Logo.png'
 import Logo from '../../img/Translate.png';
 
-function Navbar(props) {
+function Navbar() {
 
   const [selected,setSelected]=useState("home");
 

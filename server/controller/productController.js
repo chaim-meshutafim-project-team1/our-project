@@ -77,14 +77,15 @@ const GetTranslate = async (req, res) => {
         const scrapedData = await yad2Scraper(url);
         console.log("**",scrapedData);
 
-       let AddedProduct = await addProduct({...scrapedData,price:scrapedData.replace(/\D/g,''),productID:id});
-        const fieldsToTranslate = ['title','description'];
+       let AddedProduct = await addProduct({...scrapedData,price:scrapedData.price.replace(/\D/g,''),productID:id});
+       console.log(await readProduct(id));
+        
+       const fieldsToTranslate = ['title','description'];
         const translated = {}; 
         translated.productID = AddedProduct.productID;
         translated.price = AddedProduct.price;
         translated.lastUpdate = AddedProduct.lastUpdate;
         translated.image = AddedProduct.image;
-        // console.log(translated);
 
         try{
             fieldsToTranslate.forEach((translateField) => translated[translateField] = translate('he',req.body.language,AddedProduct[translateField]));

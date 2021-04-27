@@ -22,24 +22,30 @@ const yad2Scraper = async (url) => {
             return result
         })
         const image = await page.evaluate(() => {
-            const result = document.querySelector('.tmunotDesktop__img-container>img')
-            return result.buffer()
+            const result = document.querySelector('.tmunotDesktop__img-container>img').src
+            return result
         })
 
         await browser.close();
 
-            console.log(image)
-        let helper ={
+
+        let helper = {
             image: image,
             price: price,
-            title: title.replace(/\n/g,'').split('').reverse().join(''),
-            description: description.split('').reverse().join(''),
-            lastUpdate:new Date(),
+            title: title.replace(/\n/g, '').split('').reverse().join('').trim(),
+            description: description.replace(/\n/g, ' ').split(' ').map((word) => word.match(/[\u0590-\u05FF]/) ? word.split('').reverse().join('') : word)
+            .join(' ').trim(),
+            lastUpdate: new Date(),
         }
-        console.log(helper);
+
+        return helper
+
     } catch (error) {
         console.log('error runnignthe func', error);
     }
 }
 
-module.exports= yad2Scraper
+
+
+module.exports = yad2Scraper
+

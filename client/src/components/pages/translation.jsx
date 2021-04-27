@@ -9,6 +9,7 @@ const Translation = () => {
     const [card, setCard] = useState(null)
 
 
+
   
     const sendURL = async ({url,language}) => {
         console.log(url,language);

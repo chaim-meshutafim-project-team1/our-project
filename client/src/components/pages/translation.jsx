@@ -8,13 +8,14 @@ const Translation = () => {
 
     const [card, setCard] = useState(null)
 
-    const handleChange = (e) => {
-        setInputValue(e.target.value)
-    }
 
-    const sendURL = async (url) => {
-        const result = await axios.get('/api/translate', {url});
+
+  
+    const sendURL = async ({url,language}) => {
+        console.log(url,language);
+        const result = await axios.get('/api/translate', {url,language});
         console.log(result);
+     
     }
 
     const addToFav = () => {

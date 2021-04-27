@@ -8,19 +8,14 @@ const Translation = () => {
 
     const [card, setCard] = useState('')//TODO: back to null
 
-    const sendURL = async ({ url, language }) => {
-        console.log(url, language);
-        // const result = await axios.get('/api/translate', {url,language});
-        // console.log(result);
-        // const temp = card
-        // temp.push(result.data)
-        const data = {
-            image: '',
-            price: '2000 ₪',
-            title: 'בית עץ לילדים',
-            description: '180 על 180 גובה 240',
-        }
-        setCard(data);
+
+
+  
+    const sendURL = async ({url,language}) => {
+        console.log(url,language);
+        const result = await axios.get('/api/translate', {url,language});
+        console.log(result);
+     //TODO:add card to state 
     }
 
     const addToFav = () => {

@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const urlToScrape = 'https://www.yad2.co.il/item/a6ejvs';
+
 const yad2Scraper = async (url) => {
     try {
         const browser = await puppeteer.launch();
@@ -10,24 +10,42 @@ const yad2Scraper = async (url) => {
         });
 
         const description = await page.evaluate(() => {
-            const result = document.querySelector('.details_text').textContent;
+            const result = document.querySelector('#teurWrap').textContent;
             return result;
         });
-
         const title = await page.evaluate(() => {
-            const result = document.querySelector('div[class="row_title_price"]>span[class="title"]').textContent
+            const result = document.querySelector('.addressTop>h1>span').textContent
+            return result
+        })
+        const price = await page.evaluate(() => {
+            const result = document.querySelector('.ModaaWDetailsValue').textContent
+            return result
+        })
+        const image = await page.evaluate(() => {
+            const result = document.querySelector('.tmunotDesktop__img-container>img').src
             return result
         })
 
         await browser.close();
 
+
         let helper = {
-            description,
-            title
+            image: image,
+            price: price,
+            title: title.replace(/\n/g, '').split('').reverse().join('').trim(),
+            description: description.replace(/\n/g, ' ').split(' ').map((word) => word.match(/[\u0590-\u05FF]/) ? word.split('').reverse().join('') : word)
+            .join(' ').trim(),
+            lastUpdate: new Date(),
         }
-        console.log(helper);
+
+        return helper
+
     } catch (error) {
         console.log('error runnignthe func', error);
     }
 }
-console.log(yad2Scraper(urlToScrape));
+
+
+
+module.exports = yad2Scraper
+

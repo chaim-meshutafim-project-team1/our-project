@@ -6,6 +6,7 @@ import Favorites from './components/pages/favorites'
 import './components/pages/css/normalize.css'
 
 function App() {
+
   return (
     <BrowserRouter>
       <Switch>

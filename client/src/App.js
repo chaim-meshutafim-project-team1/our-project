@@ -7,6 +7,7 @@ import './components/pages/css/normalize.css'
 import './components/pages/css/app.css'
 import Navbar from './components/utils/Navbar'
 
+
 function App() {
 
   return (

@@ -11,7 +11,6 @@ function Navbar(props) {
 
   useEffect(() => {
     const currentPath = location.pathname;
-    // console.log(currentPath);
     switch (currentPath){
       case '/':
         setSelected("home");

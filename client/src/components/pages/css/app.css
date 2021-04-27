@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Noto+Sans&family=Tajawal&display=swap');
+
+.arabic {
+    font-family: 'Tajawal', sans-serif !important;
+}
+.hebrew {
+    font-family: 'M PLUS Rounded 1c', sans-serif !important;
+}
+* {
+    font-family: 'Noto Sans', sans-serif;
+}

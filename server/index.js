@@ -14,14 +14,10 @@ app.use(bodyParser.json());
 // app.use('/api/users', userRouter)
 
 
-<<<<<<< Updated upstream
-})
-=======
 app.use('/api',productRoute)
 console.log('hello');
 
 
->>>>>>> Stashed changes
 app.listen(process.env.PORT || 5000, () => {
     console.log(`application start at ${process.env.PORT || 5000}`)
 })

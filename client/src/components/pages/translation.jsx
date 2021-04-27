@@ -11,7 +11,8 @@ const Translation = () => {
 
     const sendURL = async ({url,language}) => {
         console.log(url,language);
-        const result = await axios.get('/api/translate', {url,language});
+        console.log('sending...')
+        const result = await axios.post('http://localhost:5000/api/translate', {url,language});
         console.log(result);
      //TODO:add card to state 
     }

@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 
-router.get('/translate',productController.GetTranslate)
+router.post('/translate',productController.GetTranslate)
 
 // router.delete('/delete/:id',productController.deleteProduct)
 

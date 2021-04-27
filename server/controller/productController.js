@@ -1,7 +1,7 @@
 const { Product } = require('../models/product.model.js')
 
 
-const addProduct = (req, res) => {
+const addProduct = async (productObj) => {
     const { productID, productImg, price, title, description, date, productStatus } = req.body
     const fields = Object.keys(req.body)
     const allowedFields = ["productID","productImg","price", "title", "description", "date", "productStatus"]
@@ -25,10 +25,9 @@ const addProduct = (req, res) => {
             productStatus: productStatus
         });
         await product.save()
-        return res.json({ "created successfully": { product } })
     }
     catch (err) {
-        return res.status(400).send(`error:${err}`)
+        throw new Error('cant add product') 
     }
 
 }
@@ -76,6 +75,15 @@ const readProduct = (req, res) => {
 
 const GetTranslate = (req, res) => {
     const { url } = req.body;
+
+    const Scrape = {  price,
+        title:'headling',
+        description:'hello',
+        date:new Date(),
+        productStatus:'new',
+        imageUrl:'https://images.pexels.com/photos/1590901/pexels-photo-1590901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+    }
+
     const newProduct = new Product({ url });
     res.json({ success: newProduct });
 }

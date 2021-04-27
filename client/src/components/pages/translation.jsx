@@ -14,11 +14,16 @@ const Translation = () => {
         console.log('sending...')
         const result = await axios.post('/api/translate', {url,language});
         console.log(result);
+        setCard(result.data)
      //TODO:add card to state 
     }
 
     const addToFav = () => {
-        console.log('adding to fav....');
+       const userProducts = JSON.parse(localStorage.getItem('products')) || []
+       const helper = userProducts
+       helper.push(card)
+       helper = JSON.stringify(helper)
+       localStorage.setItem('favorites',helper)
     }
 
     return (

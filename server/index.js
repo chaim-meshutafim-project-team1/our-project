@@ -6,9 +6,6 @@ const productRoute = require('./router/product')
 require("./db/mongoose");
 const {Product} =require( './models/product.model')
 
-require("./db/mongoose");
-const {Product} =require( './models/product.model')
-
 // const userRouter = require('./routes/users.route');
 const app = express();
 app.use(cors())
@@ -26,8 +23,3 @@ app.listen(process.env.PORT || 5000, () => {
 })
 
 
-// app.get('/api/translate', (req, res) => {
-//     const { url } = req.body;
-//     const newProduct = new Product({url});
-//     res.json({ success: newProduct });
-// })

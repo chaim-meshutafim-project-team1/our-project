@@ -7,8 +7,10 @@
 
 .navbar {
   display: flex;
+  justify-content: space-between;
   height: 60px;
   width: 100vw;
+  padding: 0 20px;
 }
 
 .logo {
@@ -23,6 +25,9 @@
   border: 2px solid transparent;
 }
 
+.navBtns {
+  display: flex;
+}
 .navBtn:hover {
   border-bottom: 2px solid #fb8a14;
 }

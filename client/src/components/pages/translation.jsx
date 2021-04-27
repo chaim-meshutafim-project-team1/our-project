@@ -6,14 +6,21 @@ import Search from '../utils/Search'
 
 const Translation = () => {
 
-    const [card, setCard] = useState(null)
+    const [card, setCard] = useState('')//TODO: back to null
 
-    const sendURL = async ({url,language}) => {
-        console.log(url,language);
-        const result = await axios.get('/api/translate', {url,language});
-        console.log(result);
+    const sendURL = async ({ url, language }) => {
+        console.log(url, language);
+        // const result = await axios.get('/api/translate', {url,language});
+        // console.log(result);
         // const temp = card
         // temp.push(result.data)
+        const data = {
+            image: '',
+            price: '2000 ₪',
+            title: 'בית עץ לילדים',
+            description: '180 על 180 גובה 240',
+        }
+        setCard(data);
     }
 
     const addToFav = () => {
@@ -27,7 +34,7 @@ const Translation = () => {
                 {card ?
                     <div>
                         <Card item={card} />
-                        <i onClick={addToFav} class="far fa-heart fa-2x"></i>
+                        <i onClick={addToFav} className="far fa-heart fa-2x"></i>
                     </div>
                     :
                     <div>

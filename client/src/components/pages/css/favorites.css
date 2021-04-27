@@ -1,0 +1,28 @@
+.favorites-page{
+    background: #fff;
+    width: 100vw;
+}
+
+.favorites-container{
+    height: 70vh;
+    width: 80vw;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin:0 auto;
+    margin-top: 4vh;
+    background: #ffefc510;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 5px;
+    transition: box-shadow 0.3s;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.favorites-container:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 5px;
+}
+
+.favorites-container i{
+    cursor: pointer;
+}

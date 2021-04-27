@@ -6,18 +6,18 @@ const Product = mongoose.model('Product', {
         type: String,
         required: true,
         trim: true,
-        validate(value){
-            if (!validator.isUrl(value, ["he-IL"]))
-					throw new Error(`${value} is not a url`);
-        }
+        // validate(value){  need to check url validity
+        //     if (!validator.isUrl(value, ["he-IL"]))
+		// 			throw new Error(`${value} is not a url`);
+        // }
     },
-    productId:{
+    productID:{
         type: String,
         unique:true,
         require:true,
     },
     image:{
-        type:mongoose.SchemaTypes.Url,
+        type:String,
         require:false,
         default:'https://assets.yad2.co.il/yad2site/y2assets/images/pages/feed/feed_img_placeholder.jpg'
     },
@@ -33,11 +33,11 @@ const Product = mongoose.model('Product', {
         type:String,
         requrie:false
     },
-    lastUpdate:{
+    lastUpdate:{//date
         type:Date,
 
     },
-    productState:{
+    productState:{ //status
         type:String,
     }
 })

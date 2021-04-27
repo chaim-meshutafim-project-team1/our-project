@@ -15,6 +15,10 @@ app.get('/api/translate', (req, res) => {
     res.json({ success: newProduct });
 
 })
+app.use('/api',productRoute)
+console.log('hello');
+
+
 app.listen(process.env.PORT || 5000, () => {
     console.log(`application start at ${process.env.PORT || 5000}`)
 })

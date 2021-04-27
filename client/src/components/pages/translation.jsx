@@ -17,10 +17,8 @@ const Translation = () => {
     }
 
     const sendURL = async (url) => {
-        // const result = await axios.get('/api/translate', {url});
-        // console.log(result);
-        // const temp = card
-        // temp.push(result.data)
+        const result = await axios.get('/api/translate', {url});
+        console.log(result);
     }
 
     const addToFav = () => {

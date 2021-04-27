@@ -6,12 +6,16 @@ const productRoute = require('./router/product')
 require("./db/mongoose");
 const {Product} =require( './models/product.model')
 
+require("./db/mongoose");
+const {Product} =require( './models/product.model')
+
 // const userRouter = require('./routes/users.route');
 const app = express();
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // app.use('/api/users', userRouter)
+
 
 app.use('/api',productRoute)
 

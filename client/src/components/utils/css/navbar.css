@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  height: 60px;
+  width: 100vw;
+}
+
+.logo {
+  height: 55px;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  height: 58px;
+  margin: 0 20px;
+  border: 2px solid transparent;
+}
+
+.navBtn:hover {
+  border-bottom: 2px solid #fb8a14;
+}
+
+a.selected {
+  color: #fb8a14;
+}

@@ -6,9 +6,6 @@ const productRoute = require('./router/product')
 require("./db/mongoose");
 const {Product} =require( './models/product.model')
 
-require("./db/mongoose");
-const {Product} =require( './models/product.model')
-
 // const userRouter = require('./routes/users.route');
 const app = express();
 app.use(cors())

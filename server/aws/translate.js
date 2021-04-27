@@ -21,3 +21,5 @@ const translate = (srcLanguage,trgLanguage,text) =>{
       });
       
 } 
+
+module.exports=translate;

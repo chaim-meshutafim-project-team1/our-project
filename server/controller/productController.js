@@ -1,6 +1,6 @@
 const { Product } = require('../models/product.model.js')
 const CheckDay = require('../utils/daysPassSince')
-
+// const translate = require('../aws/translate')
 const addProduct = async (productObj) => {
     const { productID, productImg, price, title, description, date, productStatus,url } = productObj
     // const fields = Object.keys(req.body)
@@ -23,7 +23,7 @@ const addProduct = async (productObj) => {
             title: title,
             description: description,
             lastUpdate:date,
-            productStatus: productStatus
+            productState: productStatus
         });
         await product.save()
         return product
@@ -54,7 +54,7 @@ const updateProduct = async (productObj) => {
             title,
             description,
             date,
-            productStatus,
+            productState,
             image
         }
     }, { new: true, runValidators: true })
@@ -86,25 +86,25 @@ const GetTranslate = async (req, res) => {
 
     const product = await readProduct(id)
 
-    if(product){
-        if(CheckDay(new Date(),product.lastUpdate) > 1){
+    // if(product){
+    //     // if(CheckDay(new Date(),product.lastUpdate) > 1){
             
-            const Scrape = {
-                productID:id,
-                url:url,  
-                price:200,
-                title:'headling',
-                description:'hello',
-                lastUpdate:new Date(),
-                productStatus:'new',
-                image:'https://images.pexels.com/photos/1590901/pexels-photo-1590901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-            }
+    //         const Scrape = {
+    //             productID:id,
+    //             url:url,  
+    //             price:200,
+    //             title:'headling',
+    //             description:'hello',
+    //             lastUpdate:new Date(),
+    //             productState:'new',
+    //             image:'https://images.pexels.com/photos/1590901/pexels-photo-1590901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+    //         }
 
-            updateProduct(Scrape)
-        }
+    //         updateProduct(Scrape)
+    //     // }
 
 
-     }else{
+    //  }else{
 
         const Scrape = {
             productID:id,
@@ -113,13 +113,22 @@ const GetTranslate = async (req, res) => {
             title:'headling',
             description:'hello',
             lastUpdate:new Date(),
-            productStatus:'new',
+            productState:'new',
             image:'https://images.pexels.com/photos/1590901/pexels-photo-1590901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
         }
         
-       let AddedProduct =  addProduct(Scrape)
+       let AddedProduct =  addProduct(Scrape);
+        // const fieldsToTranslate = ['title','description','productState'];
+        // const translated = AddedProduct; 
+        // try{
+        //     fieldsToTranslate.forEach((translateField) => translated[translateField] = translate('he',req.body.targetLanguage,AddedProduct[translateField]));
+        // }
+        // catch(e) {
+        //     return res.json({error:e.message});
+        // }
+
         res.json(AddedProduct);
-     }
+    //  }
      
 }
 

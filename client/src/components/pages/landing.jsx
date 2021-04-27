@@ -16,7 +16,6 @@ const Landing = () => {
 
     return (
         <div className="landing-page">
-            <div>nav bar here</div>
             <div className="landing-content-container">
             <div className="landing-textbox">
                 <div className="landing-textbox-heading"><h1 className="hebrew">ברוכים הבאים</h1></div>

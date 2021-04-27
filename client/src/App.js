@@ -4,8 +4,9 @@ import Landing from './components/pages/landing'
 import Translation from './components/pages/translation'
 import Favorites from './components/pages/favorites'
 import './components/pages/css/normalize.css'
-import Navbar from './components/utils/Navbar'
 import './components/pages/css/app.css'
+import Navbar from './components/utils/Navbar'
+
 
 function App() {
 

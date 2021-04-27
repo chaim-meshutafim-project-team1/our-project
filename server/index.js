@@ -13,7 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // app.use('/api/users', userRouter)
 
-
 app.use('/api',productRoute)
 console.log('hello');
 

@@ -7,12 +7,6 @@ import Logo from '../../img/yad2Logo.png'
 
 const Landing = () => {
 
-    const sendURL = async () => {
-        const result = await axios.get('http://localhost:5000/api/translate', {
-            url: "test.com"
-        })
-        console.log(result);
-    }
 
     return (
         <div className="landing-page">
@@ -28,7 +22,7 @@ const Landing = () => {
                 <p className="arabic">aracic text</p></div>
             <div className="yad2logo"><img src={Logo} alt="yad2logo" /></div>
             </div>
-            <Link to="/translation"><Button text="START" onClick={sendURL} /></Link>
+            <Link to="/translation"><Button text="START" /></Link>
         </div>
     )
 }

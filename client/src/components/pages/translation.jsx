@@ -1,27 +1,20 @@
 import React, { useState } from 'react'
 import './css/translation.css'
-import Button from '../utils/Button'
-import TextInput from '../utils/TextInput'
 import Card from '../utils/Card'
-import DropDown from '../utils/DropDown'
 import axios from 'axios'
+import Search from '../utils/Search'
 
 const Translation = () => {
 
-    const [inputValue, setInputValue] = useState('')
     const [card, setCard] = useState(null)
 
-    const handleChange = (e) => {
-        setInputValue(e.target.value)
-    }
 
-    const sendURL = async () => {
-        // const result = await axios.get('/api/translate', {
-        //     url: { inputValue }
-        // })
-        // console.log(result);
-        // const temp = card
-        // temp.push(result.data)
+  
+    const sendURL = async ({url,language}) => {
+        console.log(url,language);
+        const result = await axios.get('/api/translate', {url,language});
+        console.log(result);
+     
     }
 
     const addToFav = () => {
@@ -30,11 +23,7 @@ const Translation = () => {
 
     return (
         <div className="translation-page">
-            <div className="search-container">
-                <TextInput type="text" value={inputValue} onChange={(e) => handleChange(e)} placeholder='Insert "Yad2" URL here' />
-                <DropDown/>
-                <Button onClick={sendURL} text="Submit" />
-            </div>
+            <Search sendURL={sendURL} />
             <div className="cards-container">
                 {card ?
                     <div>

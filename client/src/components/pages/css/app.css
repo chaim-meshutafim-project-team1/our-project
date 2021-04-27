@@ -1,11 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Noto+Sans&family=Tajawal&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Noto+Sans&family=Tajawal&display=swap");
 
 .arabic {
-    font-family: 'Tajawal', sans-serif !important;
+  font-family: "Tajawal", sans-serif !important;
 }
 .hebrew {
-    font-family: 'M PLUS Rounded 1c', sans-serif !important;
+  font-family: "M PLUS Rounded 1c", sans-serif !important;
 }
 * {
-    font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.container {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  margin-top: 4vh;
+  background: #ffefc510;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 5px;
+  transition: box-shadow 0.3s;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

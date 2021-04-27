@@ -12,7 +12,6 @@ const Translation = () => {
         console.log(url, language);
         // const result = await axios.get('/api/translate', { url, language });
         // console.log(result);
-        //TODO:add card to state 
         const card = {
             image: 'https://www.komo.co.il/api/pictures/showPic.api.asp?picSize=b&picNum=7366822&luachNum=3',
             title: 'Product Title',
@@ -23,7 +22,11 @@ const Translation = () => {
     }
 
     const addToFav = () => {
-        console.log('adding to fav....');
+       const userProducts = JSON.parse(localStorage.getItem('products')) || []
+       const helper = userProducts
+       helper.push(card)
+       helper = JSON.stringify(helper)
+       localStorage.setItem('favorites',helper)
     }
 
     return (

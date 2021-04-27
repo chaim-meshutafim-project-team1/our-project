@@ -7,7 +7,6 @@ import Logo from '../../img/yad2Logo.png'
 
 const Landing = () => {
 
- 
 
     return (
         <div className="landing-page">

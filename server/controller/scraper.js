@@ -46,4 +46,6 @@ const yad2Scraper = async (url) => {
 }
 
 
+
 module.exports = yad2Scraper
+

@@ -2,15 +2,7 @@ const mongoose = require('mongoose')
 validator = require('validator');
 
 const Product = mongoose.model('Product', {
-    url: {
-        type: String,
-        required: true,
-        trim: true,
-        // validate(value){  need to check url validity
-        //     if (!validator.isUrl(value, ["he-IL"]))
-		// 			throw new Error(`${value} is not a url`);
-        // }
-    },
+
     productID:{
         type: String,
         unique:true,
@@ -37,9 +29,6 @@ const Product = mongoose.model('Product', {
         type:Date,
 
     },
-    productState:{ //status
-        type:String,
-    }
 })
 
 module.exports = {

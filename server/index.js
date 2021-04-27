@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 
 app.use('/api',productRoute)
-
+console.log('hello');
 
 
 app.listen(process.env.PORT || 5000, () => {

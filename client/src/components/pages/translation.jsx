@@ -7,6 +7,7 @@ import Search from '../utils/Search'
 const Translation = () => {
 
     const [card, setCard] = useState('')//TODO: back to null
+    const [favorit, setFavorite] = useState(false);
 
     const sendURL = async ({ url, language }) => {
         console.log(url, language);
@@ -22,11 +23,13 @@ const Translation = () => {
     }
 
     const addToFav = () => {
-       const userProducts = JSON.parse(localStorage.getItem('products')) || []
-       const helper = userProducts
-       helper.push(card)
-       helper = JSON.stringify(helper)
-       localStorage.setItem('favorites',helper)
+        const userProducts = JSON.parse(localStorage.getItem('products')) || []
+        let helper = userProducts
+        helper.push(card)
+        helper = JSON.stringify(helper)
+        localStorage.setItem('favorites', helper)
+
+        setFavorite(true);
     }
 
     return (
@@ -35,7 +38,7 @@ const Translation = () => {
             <div className="cards-container">
                 {card ?
                     <div className="card-container">
-                        <i className="heartIcon" onClick={addToFav} className="far fa-heart fa-2x"></i>
+                        <i className="heartIcon" onClick={addToFav} className={favorit ? "fas fa-heart fa-2x" : "far fa-heart fa-2x"}></i>
                         <Card item={card} />
                     </div>
                     :

@@ -1,18 +1,18 @@
-import React,{useState,useEffect} from 'react'
-import { Link,useLocation } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './css/navbar.css'
 // import Logo from '../../img/yad2Logo.png'
 import Logo from '../../img/Translate.png';
 
 function Navbar() {
 
-  const [selected,setSelected]=useState("home");
+  const [selected, setSelected] = useState("home");
 
   const location = useLocation();
 
   useEffect(() => {
     const currentPath = location.pathname;
-    switch (currentPath){
+    switch (currentPath) {
       case '/':
         setSelected("home");
         break;
@@ -28,11 +28,11 @@ function Navbar() {
 
   return (
     <div className="navbar">
-      <img className="logo" src={Logo} alt="yad2logo"/>
+      <Link className={selected === "home" ? "selected" : ''} to="/"><img className="logo" src={Logo} alt="yad2logo" /></Link>
       <div className="navBtns">
-         <div className="navBtn" ><Link className={selected==="home"? "selected":''} to="/">Home</Link></div>
-         <div className="navBtn" ><Link className={selected==="translation"? "selected":''}to="/translation">Translate</Link></div>
-         <div className="navBtn" ><Link className={selected==="favorites"? "selected":''}to="/favorites">Favorites</Link></div>
+        <div className="navBtn" ><Link className={selected === "home" ? "selected" : ''} to="/">Home</Link></div>
+        <div className="navBtn" ><Link className={selected === "translation" ? "selected" : ''} to="/translation">Translate</Link></div>
+        <div className="navBtn" ><Link className={selected === "favorites" ? "selected" : ''} to="/favorites">Favorites</Link></div>
       </div>
     </div>
   )

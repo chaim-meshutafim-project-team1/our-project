@@ -1,30 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './css/landing.css'
-import Logo from '../../img/yad2Logo.png'
 import axios from 'axios'
 import Button from '../utils/Button'
+import Logo from '../../img/yad2Logo.png'
 
 const Landing = () => {
 
-
-    const myFunc = async () => {
-
-        const result = await axios.get('http://localhost:5000/api/translate', {
+    const sendURL = async () => {
+        const result = await axios.get('/api/translate', {
             url: "test.com"
         })
         console.log(result);
-
-       
     }
 
     return (
         <div className="landing-page">
-            <img src={Logo}></img>
-            <Link to="/favorites">to favorites</Link>
-            <br></br>
-            <Link to="/translation">to translat</Link>
-            <Button text="Test" onClick={myFunc} />
+            <div>nav bar here</div>
+            <div className="landing-content-container">
+            <div className="landing-textbox">
+                <div className="landing-textbox-heading"><h1 className="hebrew">ברוכים הבאים</h1></div>
+                <p className="hebrew">אנחנו מציעים פתרון תרגום למוצרים שמוצעים למכירה באתר "יד 2" ומאפשרים לכם לשמור אותם אצלנו באתר!</p></div>
+            <div className="landing-textbox">
+                <div className="landing-textbox-heading"><h1>Welcome</h1></div>
+                <p>in this website we offer translation solution for israeli "yad 2 website" </p></div>
+            <div className="landing-textbox">
+            <div className="landing-textbox-heading"><h1 className="arabic">أهلا بك</h1></div>
+                <p className="arabic">aracic text</p></div>
+            <div className="yad2logo"><img src={Logo} alt="yad2logo" /></div>
+            </div>
+            <Link to="/translation"><Button text="START" onClick={sendURL} /></Link>
         </div>
     )
 }

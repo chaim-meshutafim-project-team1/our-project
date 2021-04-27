@@ -2,9 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 
-require("./db/mongoose");
-const {Product} =require( './models/product.model')
-
 // const userRouter = require('./routes/users.route');
 const app = express();
 app.use(cors())
@@ -18,6 +15,12 @@ app.get('/api/translate', (req, res) => {
     res.json({ success: newProduct });
 
 })
+app.use('/api',productRoute)
+console.log('hello');
+
+
 app.listen(process.env.PORT || 5000, () => {
     console.log(`application start at ${process.env.PORT || 5000}`)
 })
+
+

@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+}
+
+.input {
+  width: 50vw;
+  height: 5vh;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  margin: 0 1rem;
+}

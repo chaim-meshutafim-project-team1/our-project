@@ -16,5 +16,8 @@ router.put('/update/:id',productController.updateProduct)
 
 router.get('/product',productController.readProduct)
 
+router.get('/test',(req,res)=>{
+    res.send('test working')
+})
 
 module.exports = router

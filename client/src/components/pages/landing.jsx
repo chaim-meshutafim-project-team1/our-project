@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './css/landing.css'
 import axios from 'axios'
@@ -6,6 +6,11 @@ import Button from '../utils/Button'
 import Logo from '../../img/yad2Logo.png'
 
 const Landing = () => {
+
+    useEffect(() => {
+        const test= axios.get('/api/test')
+      console.log(test);
+    }, [])
 
 
     return (

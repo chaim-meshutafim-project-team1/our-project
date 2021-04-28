@@ -14,7 +14,7 @@ const Translation = () => {
         console.log('sending...')
         const result = await axios.post('/api/translate', {url,language});
         console.log(result);
-        const helper = card
+        let helper = card
         helper.push(result.data)
         setCard(helper)
      

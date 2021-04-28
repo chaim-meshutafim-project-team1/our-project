@@ -4,15 +4,15 @@
     width: 100vw;
 }
 
-.search-container{
+/* .search-container{
     display: flex;
     width: 50vw;
     margin: 0 auto;
     justify-content: space-evenly;
-}
+} */
 
 .cards-container{
-    height: 70vh;
+    height: 60vh;
     width: 80vw;
     border: 1px solid rgba(0, 0, 0, 0.05);
     margin:0 auto;

@@ -21,11 +21,11 @@ const Favorites = () => {
         <div className="favorites-page">
             <div className="favorites-container">
                 {favoritesItems.length ?
-                    favoritesItems.map((item)=>{
-                        return(
+                    favoritesItems.map((item) => {
+                        return (
                             <>
-                            <Card item={item} />
-                            <i onClick={(e)=>deleteItem(e)} class="far fa-trash-alt fa-2x"></i>
+                                <Card item={item} />
+                                <i onClick={deleteItem} className="far fa-trash-alt fa-2x"></i>
                             </>
                         )
                     })

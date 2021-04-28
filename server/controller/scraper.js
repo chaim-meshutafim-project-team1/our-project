@@ -3,8 +3,8 @@ const puppeteer = require('puppeteer');
 const yad2Scraper = async (url) => {
     try {
         const browser = await puppeteer.launch({
-            headless: true,
-            args: ['--no-sandbox']
+            args: ['--no-sandbox'],
+            headless: true
         })
         const page = await browser.newPage();
         await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');

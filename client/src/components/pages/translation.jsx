@@ -6,19 +6,26 @@ import Search from '../utils/Search'
 
 const Translation = () => {
 
-    const [card, setCard] = useState(null)
+    const [card, setCard] = useState([])//TODO: back to null
 
 
-  
     const sendURL = async ({url,language}) => {
         console.log(url,language);
-        const result = await axios.get('/api/translate', {url,language});
+        console.log('sending...')
+        const result = await axios.post('/api/translate', {url,language});
         console.log(result);
+        const helper = card
+        helper.push(result.data)
+        setCard(helper)
      
     }
 
     const addToFav = () => {
-        console.log('adding to fav....');
+       const userProducts = JSON.parse(localStorage.getItem('products')) || []
+       const helper = userProducts
+       helper.push(card)
+       helper = JSON.stringify(helper)
+       localStorage.setItem('favorites',helper)
     }
 
     return (
@@ -28,7 +35,7 @@ const Translation = () => {
                 {card ?
                     <div>
                         <Card item={card} />
-                        <i onClick={addToFav} class="far fa-heart fa-2x"></i>
+                        <i onClick={addToFav} className="far fa-heart fa-2x"></i>
                     </div>
                     :
                     <div>

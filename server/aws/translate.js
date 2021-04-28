@@ -8,18 +8,21 @@ AWS.config.apiVersions = {
 var translate = new AWS.Translate();
 
 
-const translate = (srcLanguage,trgLanguage,text) =>{
+const translateFunc = (srcLanguage,trgLanguage,text) =>{
     const params = {
         SourceLanguageCode: srcLanguage,
         TargetLanguageCode: trgLanguage,
         Text: text,
     };
-      
+      console.log(params);
       translate.translateText(params, function(err, data) {
         if (err) throw new Error(err.stack); // an error occurred
-        else return data;          // successful response
+        else {
+          console.log(data); 
+          return data
+        };          // successful response
       });
       
 } 
 
-module.exports=translate;
+module.exports=translateFunc;

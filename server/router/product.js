@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 
-router.get('/translate',productController.GetTranslate)
+router.post('/translate',productController.GetTranslate)
 
 // router.delete('/delete/:id',productController.deleteProduct)
 
@@ -16,5 +16,8 @@ router.put('/update/:id',productController.updateProduct)
 
 router.get('/product',productController.readProduct)
 
+router.get('/test',(req,res)=>{
+    res.send('test working')
+})
 
 module.exports = router

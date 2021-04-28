@@ -4,6 +4,7 @@ const yad2Scraper = async (url) => {
     try {
         const browser = await puppeteer.launch({
             args: ['--no-sandbox'],
+            base: 'ChromeHeadless',
             headless: true
         })
         const page = await browser.newPage();

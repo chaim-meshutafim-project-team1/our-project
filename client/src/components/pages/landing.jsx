@@ -8,8 +8,11 @@ import Logo from '../../img/yad2Logo.png'
 const Landing = () => {
 
     useEffect(() => {
-        const test= axios.get('/api/test')
-      console.log(test);
+        const fetchData = async () => {
+            const test= await axios.get('/api/test')
+            console.log(test);
+        }
+        fetchData()
     }, [])
 
 

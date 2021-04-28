@@ -8,11 +8,12 @@ const Favorites = () => {
 
     useEffect(() => {
         const favorites = JSON.parse(localStorage.getItem('favorites')) || []
-        // target the item and remove it from favorites array with array.filter or splice
         setFavoritesItems(favorites)
     }, [])
 
-    const deleteItem = () => {
+    const deleteItem = (e) => {
+          // target the item and remove it from favorites array with array.filter or splice
+          console.log(e);
         console.log('deleting.....');
     }
 
@@ -24,7 +25,7 @@ const Favorites = () => {
                         return(
                             <>
                             <Card item={item} />
-                            <i onClick={deleteItem} class="far fa-trash-alt fa-2x"></i>
+                            <i onClick={(e)=>deleteItem(e)} class="far fa-trash-alt fa-2x"></i>
                             </>
                         )
                     })

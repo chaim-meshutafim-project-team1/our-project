@@ -6,7 +6,7 @@ import Search from '../utils/Search'
 
 const Translation = () => {
 
-    const [card, setCard] = useState('')//TODO: back to null
+    const [card, setCard] = useState([])//TODO: back to null
 
 
     const sendURL = async ({url,language}) => {
@@ -14,8 +14,10 @@ const Translation = () => {
         console.log('sending...')
         const result = await axios.post('/api/translate', {url,language});
         console.log(result);
-        setCard(result.data)
-     //TODO:add card to state 
+        const helper = card
+        helper.push(result.data)
+        setCard(helper)
+     
     }
 
     const addToFav = () => {

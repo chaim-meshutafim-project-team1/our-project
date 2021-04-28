@@ -6,20 +6,18 @@ import Search from '../utils/Search'
 
 const Translation = () => {
 
-    const [card, setCard] = useState('')//TODO: back to null
-    const [favorit, setFavorite] = useState(false);
+    const [card, setCard] = useState([])//TODO: back to null
 
-    const sendURL = async ({ url, language }) => {
-        console.log(url, language);
-        // const result = await axios.get('/api/translate', { url, language });
-        // console.log(result);
-        const card = {
-            image: 'https://www.komo.co.il/api/pictures/showPic.api.asp?picSize=b&picNum=7366822&luachNum=3',
-            title: 'Product Title',
-            price: '$5000',
-            description: 'Product Description',
-        }
-        setCard(card);
+
+    const sendURL = async ({url,language}) => {
+        console.log(url,language);
+        console.log('sending...')
+        const result = await axios.post('/api/translate', {url,language});
+        console.log(result);
+        const helper = card
+        helper.push(result.data)
+        setCard(helper)
+     
     }
 
     const addToFav = () => {

@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Noto+Sans&family=Tajawal&display=swap");
 
+body{
+  overflow-x:hidden;
+}
+
 .arabic {
   font-family: "Tajawal", sans-serif !important;
 }
@@ -17,7 +21,6 @@
   background: #ffefc510;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 5px;
   transition: box-shadow 0.3s;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

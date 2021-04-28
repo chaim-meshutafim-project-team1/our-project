@@ -4,7 +4,7 @@ import DropDown from './DropDown'
 import Button from './Button'
 import './css/search.css'
 
-function Search({ sendURL }) {
+function Search({ sendURL, loading }) {
 
   const [inputValue, setInputValue] = useState('')
   const [language, setLanguage] = useState('');
@@ -37,7 +37,7 @@ function Search({ sendURL }) {
       <div className="search-section">
         <TextInput type="text" value={inputValue} onChange={inputHandler} placeholder='Insert "Yad2" URL here' />
         <DropDown onChange={onSelectLang} />
-        <Button className={(inputValue == '' || language == '') ? "disable translateBtn" : "translateBtn"} onClick={handleOnClick} text="Translate" />
+        <Button className={(inputValue == '' || language == '') || loading ? "disable translateBtn" : "translateBtn"} onClick={handleOnClick} text="Translate" />
       </div>
       <p>{err ? err : null}</p>
     </div>

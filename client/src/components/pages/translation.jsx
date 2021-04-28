@@ -39,7 +39,7 @@ const Translation = () => {
 
     return (
         <div className="translation-page">
-            <Search sendURL={sendURL} />
+            <Search sendURL={sendURL} loading={loading} />
             <div className="cards-container">
                 {loading ? <div>Loading...</div> :
                     card ?

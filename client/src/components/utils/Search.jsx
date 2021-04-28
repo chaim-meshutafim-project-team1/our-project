@@ -34,9 +34,12 @@ function Search({ sendURL }) {
 
   return (
     <div id="search" className="container">
-      <TextInput type="text" value={inputValue} onChange={inputHandler} placeholder='Insert "Yad2" URL here' />
-      <DropDown onChange={onSelectLang} />
-      <Button className={(inputValue == '' || language == '') ? "disable translateBtn" : "translateBtn"} onClick={handleOnClick} text="Translate" />
+      <div className="search-section">
+        <TextInput type="text" value={inputValue} onChange={inputHandler} placeholder='Insert "Yad2" URL here' />
+        <DropDown onChange={onSelectLang} />
+        <Button className={(inputValue == '' || language == '') ? "disable translateBtn" : "translateBtn"} onClick={handleOnClick} text="Translate" />
+      </div>
+      <p>{err ? err : null}</p>
     </div>
   )
 }

@@ -6,18 +6,25 @@ import Search from '../utils/Search'
 
 const Translation = () => {
 
-    const [card, setCard] = useState([])//TODO: back to null
+    const [card, setCard] = useState(null)//TODO: back to null
+    const [favorite, setFavorite] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [err, setErr] = useState(null);
 
 
-    const sendURL = async ({url,language}) => {
-        console.log(url,language);
-        console.log('sending...')
-        const result = await axios.post('/api/translate', {url,language});
-        console.log(result);
-        const helper = card
-        helper.push(result.data)
-        setCard(helper)
-     
+    const sendURL = async ({ url, language }) => {
+        try {
+            setLoading(true);
+            const result = await axios.post('/api/translate', { url, language });
+            console.log(result);
+            const helper = card
+            helper.push(result.data)
+            setCard(helper)
+            setLoading(false);
+        } catch (error) {
+            setErr('Error, please try again.');
+            setLoading(false);
+        }
     }
 
     const addToFav = () => {
@@ -34,15 +41,18 @@ const Translation = () => {
         <div className="translation-page">
             <Search sendURL={sendURL} />
             <div className="cards-container">
-                {card ?
-                    <div className="card-container">
-                        <i className="heartIcon" onClick={addToFav} className={favorit ? "fas fa-heart fa-2x" : "far fa-heart fa-2x"}></i>
-                        <Card item={card} />
-                    </div>
-                    :
-                    <div>
-                        <h1>Insert URL</h1>
-                    </div>
+                {loading ? <div>Loading...</div> :
+                    card ?
+                        <div className="card-container">
+                            <i className="heartIcon" onClick={addToFav} className={favorite ? "fas fa-heart fa-2x" : "far fa-heart fa-2x"}></i>
+                            <Card item={card} />
+                        </div>
+                        :
+                        err ?
+                            <div>{err}</div> :
+                            <div>
+                                <h1>Insert URL</h1>
+                            </div>
                 }
 
             </div>
